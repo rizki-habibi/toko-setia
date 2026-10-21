@@ -22,9 +22,9 @@ class AiAssistantController extends Controller
         }
         RateLimiter::hit($key, 60);
 
-        $apiKey = config('services.ai_setia.key');
-        $baseUrl = rtrim((string) config('services.ai_setia.base_url'), '/');
-        $model = config('services.ai_setia.model');
+        $apiKey = config('ai_setia.key');
+        $baseUrl = rtrim((string) config('ai_setia.base_url'), '/');
+        $model = config('ai_setia.model');
 
         if (!$apiKey || !$baseUrl || !$model) {
             return response()->json([
